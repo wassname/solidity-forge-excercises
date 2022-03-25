@@ -8,12 +8,13 @@ Instructions:
   - `git clone --recurse-submodules -j8 https://github.com/wassname/solidity-forge-exercises.git`
   - `cd solidity-forge-exercises`
 - Learn
-  - run `forge test -vvv`
+  - run `forge test -vvv --match-contract ERC20`
   - see the first error, it's to do with the constructor in erc20
+  - find the [test if relevant](src/test/ERC20.t.sol)
   - find the erc20 file and the FIXME comment (./src/tokens/ERC20.sol)
-  - replace fixme with write missing logic untill the first error disappears
+  - replace FIXME with missing logic untill the first error disappears or the next test passes
   - compare to the [answer](https://github.com/Rari-Capital/solmate/blob/main/src/tokens/ERC20.sol)
-  - Repeat
+  - Repeat for ERC721, ERC1155, and ERC4626
 - Now fix the unit tests by going through each FIXME comment in the  file
 - repeat for other files
 - if you get stuck, cheat by looking at [this](https://github.com/Rari-Capital/solmate/blob/main/src/tokens/ERC20.sol)
