@@ -47,9 +47,7 @@ abstract contract ERC1155 {
     //////////////////////////////////////////////////////////////*/
 
     function setApprovalForAll(address operator, bool approved) public virtual {
-        isApprovedForAll[msg.sender][operator] = approved;
-
-        emit ApprovalForAll(msg.sender, operator, approved);
+        // FIXME
     }
 
     function safeTransferFrom(
@@ -61,10 +59,7 @@ abstract contract ERC1155 {
     ) public virtual {
         require(msg.sender == from || isApprovedForAll[from][msg.sender], "NOT_AUTHORIZED");
 
-        balanceOf[from][id] -= amount;
-        balanceOf[to][id] += amount;
-
-        emit TransferSingle(msg.sender, from, to, id, amount);
+        // FIXME
 
         require(
             to.code.length == 0
@@ -93,17 +88,7 @@ abstract contract ERC1155 {
         uint256 amount;
 
         for (uint256 i = 0; i < idsLength; ) {
-            id = ids[i];
-            amount = amounts[i];
-
-            balanceOf[from][id] -= amount;
-            balanceOf[to][id] += amount;
-
-            // An array can't have a total length
-            // larger than the max uint256 value.
-            unchecked {
-                ++i;
-            }
+            // FIXME
         }
 
         emit TransferBatch(msg.sender, from, to, ids, amounts);
@@ -123,19 +108,7 @@ abstract contract ERC1155 {
         virtual
         returns (uint256[] memory balances)
     {
-        uint256 ownersLength = owners.length; // Saves MLOADs.
-
-        require(ownersLength == ids.length, "LENGTH_MISMATCH");
-
-        balances = new uint256[](ownersLength);
-
-        // Unchecked because the only math done is incrementing
-        // the array index counter which cannot possibly overflow.
-        unchecked {
-            for (uint256 i = 0; i < ownersLength; ++i) {
-                balances[i] = balanceOf[owners[i]][ids[i]];
-            }
-        }
+        // FIXME
     }
 
     /*///////////////////////////////////////////////////////////////
@@ -159,7 +132,7 @@ abstract contract ERC1155 {
         uint256 amount,
         bytes memory data
     ) internal {
-        balanceOf[to][id] += amount;
+        // FIXME
 
         emit TransferSingle(msg.sender, address(0), to, id, amount);
 
@@ -178,19 +151,7 @@ abstract contract ERC1155 {
         uint256[] memory amounts,
         bytes memory data
     ) internal {
-        uint256 idsLength = ids.length; // Saves MLOADs.
-
-        require(idsLength == amounts.length, "LENGTH_MISMATCH");
-
-        for (uint256 i = 0; i < idsLength; ) {
-            balanceOf[to][ids[i]] += amounts[i];
-
-            // An array can't have a total length
-            // larger than the max uint256 value.
-            unchecked {
-                ++i;
-            }
-        }
+        // FIXME
 
         emit TransferBatch(msg.sender, address(0), to, ids, amounts);
 
@@ -212,15 +173,7 @@ abstract contract ERC1155 {
 
         require(idsLength == amounts.length, "LENGTH_MISMATCH");
 
-        for (uint256 i = 0; i < idsLength; ) {
-            balanceOf[from][ids[i]] -= amounts[i];
-
-            // An array can't have a total length
-            // larger than the max uint256 value.
-            unchecked {
-                ++i;
-            }
-        }
+        // FIXME
 
         emit TransferBatch(msg.sender, from, address(0), ids, amounts);
     }

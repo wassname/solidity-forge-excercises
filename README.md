@@ -1,3 +1,34 @@
+
+# Learn solidity by reimplementing solmate specs
+
+Learn solidity by reimplementing these specifications.
+
+Instructions:
+- Setup
+  - `git clone --recurse-submodules -j8 git://github.com/foo/bar.git`
+  - `cd bar`
+- Learn
+  - run `forge test`
+  - see the first error, it's to do with the constructor in erc20
+  - find the erc20 file and the FIXME comment (./src/tokens/ERC20.sol)
+  - replace fixme with write missing logic untill the first error disappears
+  - compare to the [answer](https://github.com/Rari-Capital/solmate/blob/main/src/tokens/ERC20.sol)
+  - Repeat
+- Now fix the unit tests by going through each FIXME comment in the  file
+- repeat for other files
+- if you get stuck, cheat by looking at [this](https://github.com/Rari-Capital/solmate/blob/main/src/tokens/ERC20.sol)
+
+This uses [forge](https://onbjerg.github.io/foundry-book/forge/cheatcodes.html), [solmate](https://github.com/Rari-Capital/solmate)'s unit tests.
+
+Reference:
+- https://cryptozombies.io/
+- https://solidity-by-example.org/
+- speedrunethereum.com/
+
+Below is the original readme
+
+-------
+
 # solmate
 
 **Modern**, **opinionated**, and **gas optimized** building blocks for **smart contract development**.

@@ -16,15 +16,13 @@ contract WETH is ERC20("Wrapped Ether", "WETH", 18) {
     event Withdrawal(address indexed to, uint256 amount);
 
     function deposit() public payable virtual {
-        _mint(msg.sender, msg.value);
+        // FIXME
 
         emit Deposit(msg.sender, msg.value);
     }
 
     function withdraw(uint256 amount) public virtual {
-        _burn(msg.sender, amount);
-
-        emit Withdrawal(msg.sender, amount);
+        // FIXME
 
         msg.sender.safeTransferETH(amount);
     }

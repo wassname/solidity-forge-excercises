@@ -6,5 +6,25 @@
   "files.associations": {
     ".dapprc": "shellscript",
     ".gas-snapshot": "julia"
-  }
+  },
+  "workbench.colorCustomizations": {
+    "activityBar.activeBackground": "#f3b577",
+    "activityBar.activeBorder": "#0d9250",
+    "activityBar.background": "#f3b577",
+    "activityBar.foreground": "#15202b",
+    "activityBar.inactiveForeground": "#15202b99",
+    "activityBarBadge.background": "#0d9250",
+    "activityBarBadge.foreground": "#e7e7e7",
+    "sash.hoverBorder": "#f3b577",
+    "statusBar.background": "#ef9c48",
+    "statusBar.foreground": "#15202b",
+    "statusBarItem.hoverBackground": "#eb8319",
+    "statusBarItem.remoteBackground": "#ef9c48",
+    "statusBarItem.remoteForeground": "#15202b",
+    "titleBar.activeBackground": "#ef9c48",
+    "titleBar.activeForeground": "#15202b",
+    "titleBar.inactiveBackground": "#ef9c4899",
+    "titleBar.inactiveForeground": "#15202b99"
+  },
+  "peacock.color": "#ef9c48"
 }

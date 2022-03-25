@@ -42,8 +42,7 @@ abstract contract ERC721 {
     //////////////////////////////////////////////////////////////*/
 
     constructor(string memory _name, string memory _symbol) {
-        name = _name;
-        symbol = _symbol;
+        // FIXME
     }
 
     /*///////////////////////////////////////////////////////////////
@@ -51,17 +50,11 @@ abstract contract ERC721 {
     //////////////////////////////////////////////////////////////*/
 
     function approve(address spender, uint256 id) public virtual {
-        address owner = ownerOf[id];
-
-        require(msg.sender == owner || isApprovedForAll[owner][msg.sender], "NOT_AUTHORIZED");
-
-        getApproved[id] = spender;
-
-        emit Approval(owner, spender, id);
+        // FIXME
     }
 
     function setApprovalForAll(address operator, bool approved) public virtual {
-        isApprovedForAll[msg.sender][operator] = approved;
+        // FIXME
 
         emit ApprovalForAll(msg.sender, operator, approved);
     }
@@ -71,28 +64,7 @@ abstract contract ERC721 {
         address to,
         uint256 id
     ) public virtual {
-        require(from == ownerOf[id], "WRONG_FROM");
-
-        require(to != address(0), "INVALID_RECIPIENT");
-
-        require(
-            msg.sender == from || isApprovedForAll[from][msg.sender] || msg.sender == getApproved[id],
-            "NOT_AUTHORIZED"
-        );
-
-        // Underflow of the sender's balance is impossible because we check for
-        // ownership above and the recipient's balance can't realistically overflow.
-        unchecked {
-            balanceOf[from]--;
-
-            balanceOf[to]++;
-        }
-
-        ownerOf[id] = to;
-
-        delete getApproved[id];
-
-        emit Transfer(from, to, id);
+        // FIXME
     }
 
     function safeTransferFrom(
@@ -100,7 +72,7 @@ abstract contract ERC721 {
         address to,
         uint256 id
     ) public virtual {
-        transferFrom(from, to, id);
+        // FIXME
 
         require(
             to.code.length == 0 ||
@@ -116,7 +88,7 @@ abstract contract ERC721 {
         uint256 id,
         bytes memory data
     ) public virtual {
-        transferFrom(from, to, id);
+        // FIXME
 
         require(
             to.code.length == 0 ||
@@ -146,31 +118,11 @@ abstract contract ERC721 {
 
         require(ownerOf[id] == address(0), "ALREADY_MINTED");
 
-        // Counter overflow is incredibly unrealistic.
-        unchecked {
-            balanceOf[to]++;
-        }
-
-        ownerOf[id] = to;
-
-        emit Transfer(address(0), to, id);
+        // FIXME
     }
 
     function _burn(uint256 id) internal virtual {
-        address owner = ownerOf[id];
-
-        require(owner != address(0), "NOT_MINTED");
-
-        // Ownership check above ensures no underflow.
-        unchecked {
-            balanceOf[owner]--;
-        }
-
-        delete ownerOf[id];
-
-        delete getApproved[id];
-
-        emit Transfer(owner, address(0), id);
+        // FIXME
     }
 
     /*///////////////////////////////////////////////////////////////
@@ -178,7 +130,7 @@ abstract contract ERC721 {
     //////////////////////////////////////////////////////////////*/
 
     function _safeMint(address to, uint256 id) internal virtual {
-        _mint(to, id);
+        // FIXME
 
         require(
             to.code.length == 0 ||
@@ -193,7 +145,7 @@ abstract contract ERC721 {
         uint256 id,
         bytes memory data
     ) internal virtual {
-        _mint(to, id);
+        // FIXME
 
         require(
             to.code.length == 0 ||
