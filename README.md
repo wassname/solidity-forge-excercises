@@ -5,8 +5,8 @@ Learn solidity by reimplementing these specifications.
 
 Instructions:
 - Setup
-  - `git clone --recurse-submodules -j8 git://github.com/foo/bar.git`
-  - `cd bar`
+  - `git clone --recurse-submodules -j8 https://github.com/wassname/solidity-forge-exercises.git`
+  - `cd solidity-forge-exercises`
 - Learn
   - run `forge test`
   - see the first error, it's to do with the constructor in erc20
