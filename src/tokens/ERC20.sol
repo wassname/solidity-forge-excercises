@@ -53,7 +53,9 @@ abstract contract ERC20 {
         string memory _symbol,
         uint8 _decimals
     ) {
-        // FIXME
+        name = _name;
+        symbol = _symbol;
+        decimals = _decimals;
 
         INITIAL_CHAIN_ID = block.chainid;
         INITIAL_DOMAIN_SEPARATOR = computeDomainSeparator();
@@ -64,11 +66,18 @@ abstract contract ERC20 {
     //////////////////////////////////////////////////////////////*/
 
     function approve(address spender, uint256 amount) public virtual returns (bool) {
-        // FIXME
+        allowance[msg.sender][spender] = amount;
+        emit Approval(msg.sender, spender, amount);
+        return true;
     }
 
     function transfer(address to, uint256 amount) public virtual returns (bool) {
-        // FIXME
+        address from = msg.sender;
+        require(balanceOf[from]>=amount, "not enough tokens");
+        balanceOf[from] -= amount;
+        balanceOf[to] += amount;
+        emit Transfer(from, to, amount);
+        return true;
     }
 
     function transferFrom(
@@ -76,7 +85,17 @@ abstract contract ERC20 {
         address to,
         uint256 amount
     ) public virtual returns (bool) {
-        // FIXME
+        address spender = msg.sender;
+        uint256 allowed = allowance[from][spender]; // Saves gas for limited approvals.
+        require(allowance[from][spender] >= amount, "allowance too low");
+        // a max allowance is an infinite allowance
+        if (allowed != type(uint256).max) allowance[from][spender] = allowed - amount;
+        require(balanceOf[from]>=amount, "not enough tokens");
+        // allowance[from][to] -= amount;
+        balanceOf[from] -= amount;
+        balanceOf[to] += amount;
+        emit Transfer(from, to, amount);
+        return true;
     }
 
     /*///////////////////////////////////////////////////////////////
@@ -123,7 +142,7 @@ abstract contract ERC20 {
 
             require(recoveredAddress != address(0) && recoveredAddress == owner, "INVALID_SIGNER");
 
-            // FIXME allowance?? = value;
+            allowance[owner][spender] += value;
         }
 
         emit Approval(owner, spender, value);
@@ -151,10 +170,14 @@ abstract contract ERC20 {
     //////////////////////////////////////////////////////////////*/
 
     function _mint(address to, uint256 amount) internal virtual {
-        // FIXME
+        totalSupply += amount;
+        balanceOf[to] += amount;
+        emit Transfer(address(0), to, amount);
     }
 
     function _burn(address from, uint256 amount) internal virtual {
-        // FIXME
+        totalSupply -= amount;
+        balanceOf[from] -= amount;
+        emit Transfer(from, address(0), amount);
     }
 }
