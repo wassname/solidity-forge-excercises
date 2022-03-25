@@ -8,7 +8,7 @@ Instructions:
   - `git clone --recurse-submodules -j8 https://github.com/wassname/solidity-forge-exercises.git`
   - `cd solidity-forge-exercises`
 - Learn
-  - run `forge test`
+  - run `forge test -vvv`
   - see the first error, it's to do with the constructor in erc20
   - find the erc20 file and the FIXME comment (./src/tokens/ERC20.sol)
   - replace fixme with write missing logic untill the first error disappears
