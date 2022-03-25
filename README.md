@@ -14,10 +14,8 @@ Instructions:
   - find the erc20 file and the FIXME comment (./src/tokens/ERC20.sol)
   - replace FIXME with missing logic untill the first error disappears or the next test passes
   - compare to the [answer](https://github.com/Rari-Capital/solmate/blob/main/src/tokens/ERC20.sol)
-  - Repeat for ERC721, ERC1155, and ERC4626
-- Now fix the unit tests by going through each FIXME comment in the  file
-- repeat for other files
-- if you get stuck, cheat by looking at [this](https://github.com/Rari-Capital/solmate/blob/main/src/tokens/ERC20.sol)
+  - repeat for other files: ERC721, ERC1155, and ERC4626
+  - if you get stuck, cheat by looking at [this](https://github.com/Rari-Capital/solmate/blob/main/src/tokens/ERC20.sol)
 
 This uses [forge](https://onbjerg.github.io/foundry-book/forge/cheatcodes.html), [solmate](https://github.com/Rari-Capital/solmate)'s unit tests.
 
